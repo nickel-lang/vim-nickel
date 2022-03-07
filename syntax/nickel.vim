@@ -4,7 +4,7 @@ endif
 let b:current_syntax = "nickel"
 
 " Comments
-syntax region nickelComment start="//" end="$" contains=@Spell oneline display
+syntax region nickelComment start="#" end="$" contains=@Spell oneline display
 
 " Commands
 syntax keyword nickelKeywords
@@ -27,11 +27,12 @@ syntax keyword nickelOperator
     \ <=
     \ >
     \ >=
+    \ =>
     \ ++
     \ @
-    \ #
     \ ->
     \ :
+    \ |
     \ =
     \ %
 
@@ -39,12 +40,14 @@ syntax keyword nickelOperator
 syntax match nickelTypeContract "\v<[A-Z_\$][a-zA-Z0-9_\$]*>"
 
 " Identifier
-syntax match nickelIdentifier "\v<[a-z_\$][a-zA-Z0-9_\$]*>"
+syntax match nickelIdentifier "\v<[a-z_\$][a-zA-Z0-9-_\$]*>"
 syntax match nickelBuiltin "\v\%[a-zA-Z0-9_\$]*\%"
 
 " Strings
 syntax region nickelString start=+"+ skip=+\\"+ end=+"+ oneline
-syntax region nickelString start=+m#"+ end=+"#m+
+syntax region nickelString start=+m%"+ end=+"%m+
+syntax region nickelString start=+m%%"+ end=+"%%m+
+syntax region nickelString start=+m%%%"+ end=+"%%%m+
 
 " Number
 syntax match nickelInt "[0-9]\+"
