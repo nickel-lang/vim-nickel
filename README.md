@@ -10,7 +10,7 @@ and identation for Nickel source files.
 As of version 8.0 Vim supports packages. Clone this repository inside `~/.vim/pack/all/start`:
 
 ```
-git clone https://github.com/nickel-lang/vim-nickel.git ~/.vim/pack/all/start/vim-nix
+git clone https://github.com/nickel-lang/vim-nickel.git ~/.vim/pack/all/start/vim-nickel
 ```
 
 ### Using plugin managers
