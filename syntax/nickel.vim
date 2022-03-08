@@ -18,6 +18,7 @@ syntax keyword nickelKeywords
     \ doc
     \ default
     \ fun
+    \ forall
 
 " Operators
 syntax keyword nickelOperator
@@ -27,12 +28,17 @@ syntax keyword nickelOperator
     \ <=
     \ >
     \ >=
-    \ =>
+    \ &&
+    \ \|\|
+    \ +
+    \ -
+    \ *
+    \ /
     \ ++
     \ @
     \ ->
     \ :
-    \ |
+    \ \|
     \ =
     \ %
 
