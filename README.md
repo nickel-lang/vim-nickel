@@ -17,11 +17,11 @@ git clone https://github.com/nickel-lang/vim-nickel.git ~/.vim/pack/all/start/vi
 
 ```
 " vim-plug
-Plug 'LnL7/vim-nix'
+Plug 'nickel-lang/vim-nickel'
 " NeoBundle
-NeoBundle 'LnL7/vim-nix'
+NeoBundle 'nickel-lang/vim-nickel'
 " Vundle
-Plugin 'LnL7/vim-nix'
+Plugin 'nickel-lang/vim-nickel'
 ```
 
 ### Manual
