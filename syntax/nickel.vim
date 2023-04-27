@@ -66,8 +66,8 @@ syntax keyword nickelTypeContract forall
 syntax match nickelTypeContract "\v<([a-z_][a-zA-Z0-9-_']*\.)*[A-Z][a-zA-Z0-9_]*>"
 
 " Single enum tag
-syntax match nickelEnumTag "\v`[a-zA-Z_][a-zA-Z0-9-_']*>"
-syntax region nickelEnumTag start=+`"+ skip=+\\"+ end=+"+ oneline
+syntax match nickelEnumTag "\v'[a-zA-Z_][a-zA-Z0-9-_']*>"
+syntax region nickelEnumTag start=+'"+ skip=+\\"+ end=+"+ oneline
 
 " Enum type
 syntax region nickelTypeContract start=+\[|+ end=+|]+ contains=nickelEnumTag
