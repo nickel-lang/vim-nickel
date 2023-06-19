@@ -52,6 +52,7 @@ syntax keyword nickelOperator
     \ =
     \ %
 
+syntax match nickelParens "{\|}\|(\|)\|\[\|\]\|,"
 
 " Identifier
 syntax match nickelIdentifier "\v<[a-z_][a-zA-Z0-9-_']*>"
@@ -91,6 +92,7 @@ hi def link nickelMetadata     Special
 hi def link nickelImport       Include
 hi def link nickelControlFlow  Statement
 hi def link nickelOperator     Operator
+hi def link nickelParens       Special
 hi def link nickelTypeContract Type
 hi def link nickelEnumTag      Constant
 hi def link nickelIdentifier   Normal
