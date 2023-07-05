@@ -73,14 +73,17 @@ syntax region nickelEnumTag start=+'"+ skip=+\\"+ end=+"+ oneline
 " Enum type
 syntax region nickelTypeContract start=+\[|+ end=+|]+ contains=nickelEnumTag
 
-syntax match nickelInterpolation "\v\%\{([^\}])*\}"
+syntax match nickelInterpolation1 "\v\%\{([^\}])*\}"
+syntax match nickelInterpolation2 "\v\%\%\{([^\}])*\}"
+syntax match nickelInterpolation3 "\v\%\%\%\{([^\}])*\}"
+syntax match nickelInterpolation4 "\v\%\%\%\%\{([^\}])*\}"
 
 " Strings
-syntax region nickelString start=+"+ skip=+\\"+ end=+"+   contains=nickelInterpolation oneline
-syntax region nickelString start=+m%"+ end=+"%+ contains=nickelInterpolation
-syntax region nickelString start=+m%%"+ end=+"%%+
-syntax region nickelString start=+m%%%"+ end=+"%%%+
-syntax region nickelString start=+m%%%%"+ end=+"%%%%+
+syntax region nickelString start=+"+ skip=+\\"+ end=+"+ contains=nickelInterpolation1 oneline
+syntax region nickelString start=+m%"+ end=+"%+ contains=nickelInterpolation1
+syntax region nickelString start=+m%%"+ end=+"%%+ contains=nickelInterpolation2
+syntax region nickelString start=+m%%%"+ end=+"%%%+ contains=nickelInterpolation3
+syntax region nickelString start=+m%%%%"+ end=+"%%%%+ contains=nickelInterpolation4
 
 " Number
 syntax match nickelFloat "\v[+-]?\d+((\.\d+)?([eE][+-]?\d+)?)?"
@@ -88,18 +91,21 @@ syntax match nickelFloat "\v[+-]?\d+((\.\d+)?([eE][+-]?\d+)?)?"
 syntax match nickelFloat "\v[+-]?\.\d+([eE][+-]?\d+)?"
 syntax match nickelHex "\v0[xX][0-9a-fA-F]+"
 
-hi def link nickelComment       Comment
-hi def link nickelKeywords      Keyword
-hi def link nickelMetadata      Special
-hi def link nickelImport        Include
-hi def link nickelControlFlow   Statement
-hi def link nickelOperator      Operator
-hi def link nickelParens        Special
-hi def link nickelInterpolation Normal
-hi def link nickelTypeContract  Type
-hi def link nickelEnumTag       Constant
-hi def link nickelIdentifier    Normal
-hi def link nickelBuiltin       Function
-hi def link nickelString        String
-hi def link nickelFloat         Float
-hi def link nickelHex           Number
+hi def link nickelComment        Comment
+hi def link nickelKeywords       Keyword
+hi def link nickelMetadata       Special
+hi def link nickelImport         Include
+hi def link nickelControlFlow    Statement
+hi def link nickelOperator       Operator
+hi def link nickelParens         Special
+hi def link nickelInterpolation1 Normal
+hi def link nickelInterpolation2 Normal
+hi def link nickelInterpolation3 Normal
+hi def link nickelInterpolation4 Normal
+hi def link nickelTypeContract   Type
+hi def link nickelEnumTag        Constant
+hi def link nickelIdentifier     Normal
+hi def link nickelBuiltin        Function
+hi def link nickelString         String
+hi def link nickelFloat          Float
+hi def link nickelHex            Number
