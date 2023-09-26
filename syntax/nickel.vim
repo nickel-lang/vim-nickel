@@ -80,10 +80,10 @@ syntax match nickelInterpolation4 "\v\%\%\%\%\{([^\}]|\n)*\}" contains=nickelCom
 
 " Strings
 syntax region nickelString start=+"+ skip=+\\"+ end=+"+ contains=nickelInterpolation1 oneline
-syntax region nickelString start=!\([a-z]\+-s\|m\)%"! end=+"%+ contains=nickelInterpolation1
-syntax region nickelString start=!\([a-z]\+-s\|m\)%%"! end=+"%%+ contains=nickelInterpolation2
-syntax region nickelString start=!\([a-z]\+-s\|m\)%%%"! end=+"%%%+ contains=nickelInterpolation3
-syntax region nickelString start=!\([a-z]\+-s\|m\)%%%%"! end=+"%%%%+ contains=nickelInterpolation4
+syntax region nickelString start=!\([a-z]\+-s\|m\)%"! skip=+"%{+ end=+"%+ contains=nickelInterpolation1
+syntax region nickelString start=!\([a-z]\+-s\|m\)%%"! skip=+"%%{+ end=+"%%+ contains=nickelInterpolation2
+syntax region nickelString start=!\([a-z]\+-s\|m\)%%%"! skip=+"%%%{+ end=+"%%%+ contains=nickelInterpolation3
+syntax region nickelString start=!\([a-z]\+-s\|m\)%%%%"! skip=+"%%%%{+ end=+"%%%%+ contains=nickelInterpolation4
 
 " Number
 syntax match nickelFloat "\v[+-]?\d+((\.\d+)?([eE][+-]?\d+)?)?"
