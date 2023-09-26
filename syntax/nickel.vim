@@ -73,17 +73,17 @@ syntax region nickelEnumTag start=+'"+ skip=+\\"+ end=+"+ oneline
 " Enum type
 syntax region nickelTypeContract start=+\[|+ end=+|]+ contains=nickelEnumTag
 
-syntax match nickelInterpolation1 "\v\%\{([^\}])*\}"
-syntax match nickelInterpolation2 "\v\%\%\{([^\}])*\}"
-syntax match nickelInterpolation3 "\v\%\%\%\{([^\}])*\}"
-syntax match nickelInterpolation4 "\v\%\%\%\%\{([^\}])*\}"
+syntax match nickelInterpolation1 "\v\%\{([^\}]|\n)*\}" contains=nickelComment,nickelKeywords,nickelImport,nickelControlFlow,nickelMetadata,nickelOperator,nickelParens,nickelIdentifier,nickelBuiltin,nickelTypeContract,nickelEnumTag,nickelString,nickelFloat,nickelHex
+syntax match nickelInterpolation2 "\v\%\%\{([^\}]|\n)*\}" contains=nickelComment,nickelKeywords,nickelImport,nickelControlFlow,nickelMetadata,nickelOperator,nickelParens,nickelIdentifier,nickelBuiltin,nickelTypeContract,nickelEnumTag,nickelString,nickelFloat,nickelHex
+syntax match nickelInterpolation3 "\v\%\%\%\{([^\}]|\n)*\}" contains=nickelComment,nickelKeywords,nickelImport,nickelControlFlow,nickelMetadata,nickelOperator,nickelParens,nickelIdentifier,nickelBuiltin,nickelTypeContract,nickelEnumTag,nickelString,nickelFloat,nickelHex
+syntax match nickelInterpolation4 "\v\%\%\%\%\{([^\}]|\n)*\}" contains=nickelComment,nickelKeywords,nickelImport,nickelControlFlow,nickelMetadata,nickelOperator,nickelParens,nickelIdentifier,nickelBuiltin,nickelTypeContract,nickelEnumTag,nickelString,nickelFloat,nickelHex
 
 " Strings
 syntax region nickelString start=+"+ skip=+\\"+ end=+"+ contains=nickelInterpolation1 oneline
-syntax region nickelString start=+m%"+ end=+"%+ contains=nickelInterpolation1
-syntax region nickelString start=+m%%"+ end=+"%%+ contains=nickelInterpolation2
-syntax region nickelString start=+m%%%"+ end=+"%%%+ contains=nickelInterpolation3
-syntax region nickelString start=+m%%%%"+ end=+"%%%%+ contains=nickelInterpolation4
+syntax region nickelString start=!\([a-z]\+-s\|m\)%"! skip=+"%{+ end=+"%+ contains=nickelInterpolation1
+syntax region nickelString start=!\([a-z]\+-s\|m\)%%"! skip=+"%%{+ end=+"%%+ contains=nickelInterpolation2
+syntax region nickelString start=!\([a-z]\+-s\|m\)%%%"! skip=+"%%%{+ end=+"%%%+ contains=nickelInterpolation3
+syntax region nickelString start=!\([a-z]\+-s\|m\)%%%%"! skip=+"%%%%{+ end=+"%%%%+ contains=nickelInterpolation4
 
 " Number
 syntax match nickelFloat "\v[+-]?\d+((\.\d+)?([eE][+-]?\d+)?)?"
