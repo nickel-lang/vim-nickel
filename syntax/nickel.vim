@@ -73,10 +73,10 @@ syntax region nickelEnumTag start=+'"+ skip=+\\"+ end=+"+ oneline
 " Enum type
 syntax region nickelTypeContract start=+\[|+ end=+|]+ contains=nickelEnumTag
 
-syntax match nickelInterpolation1 "\v\%\{([^\}])*\}"
-syntax match nickelInterpolation2 "\v\%\%\{([^\}])*\}"
-syntax match nickelInterpolation3 "\v\%\%\%\{([^\}])*\}"
-syntax match nickelInterpolation4 "\v\%\%\%\%\{([^\}])*\}"
+syntax match nickelInterpolation1 "\v\%\{([^\}]|\n)*\}"
+syntax match nickelInterpolation2 "\v\%\%\{([^\}]|\n)*\}"
+syntax match nickelInterpolation3 "\v\%\%\%\{([^\}]|\n)*\}"
+syntax match nickelInterpolation4 "\v\%\%\%\%\{([^\}]|\n)*\}"
 
 " Strings
 syntax region nickelString start=+"+ skip=+\\"+ end=+"+ contains=nickelInterpolation1 oneline
